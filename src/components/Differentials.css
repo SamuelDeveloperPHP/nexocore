@@ -1,0 +1,52 @@
+.differentials {
+  background: linear-gradient(180deg, transparent, rgba(15, 23, 48, 0.6));
+}
+
+.differentials__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.differentials__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: border-color 0.2s ease, background 0.2s ease, opacity 0.7s,
+    transform 0.7s;
+}
+.differentials__item:hover {
+  border-color: rgba(96, 165, 250, 0.4);
+  background: var(--surface-strong);
+}
+
+.differentials__check {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #06122b;
+  background: linear-gradient(135deg, var(--accent-bright), var(--accent-cyan));
+}
+
+@media (max-width: 980px) {
+  .differentials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 520px) {
+  .differentials__grid {
+    grid-template-columns: 1fr;
+  }
+}

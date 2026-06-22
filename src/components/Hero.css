@@ -1,0 +1,111 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  overflow: hidden;
+}
+
+.network-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+.hero__glow {
+  position: absolute;
+  z-index: 0;
+  top: -20%;
+  right: -10%;
+  width: 720px;
+  height: 720px;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.22),
+    transparent 62%
+  );
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__title {
+  font-size: clamp(38px, 6.4vw, 76px);
+  max-width: 14ch;
+  margin: 26px 0 24px;
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hero__accent {
+  color: var(--accent-bright);
+  position: relative;
+}
+
+.hero__lead {
+  font-size: clamp(17px, 2vw, 20px);
+  color: var(--ink-soft);
+  max-width: 56ch;
+  animation: rise 0.9s 0.08s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 36px 0 56px;
+  animation: rise 0.9s 0.16s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  animation: rise 0.9s 0.24s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hero__stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 22px;
+  min-width: 150px;
+  backdrop-filter: blur(10px);
+}
+.hero__stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.hero__stat-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__title,
+  .hero__lead,
+  .hero__actions,
+  .hero__stats {
+    animation: none;
+  }
+}
