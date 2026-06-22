@@ -30,8 +30,8 @@ export default function Contact() {
             </li>
             <li>
               <span className="contact__k">WhatsApp</span>
-              <a href="https://wa.me/" target="_blank" rel="noreferrer">
-                Falar agora
+              <a href="https://wa.me/5541988885871" target="_blank" rel="noreferrer">
+                (41) 98888-5871
               </a>
             </li>
             <li>
