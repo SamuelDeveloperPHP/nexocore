@@ -4,7 +4,11 @@ import "./Contact.css";
 export default function Contact() {
   const [sent, setSent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
+  // Anti-spam: campo isca (honeypot) + marca de tempo de abertura do formulário.
+  const [honeypot, setHoneypot] = useState("");
+  const [startedAt] = useState(() => Date.now());
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,6 +26,12 @@ export default function Contact() {
       return;
     }
 
+    // Bot preencheu o honeypot: finge sucesso, não envia nada.
+    if (honeypot) {
+      setSent(true);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -30,7 +40,11 @@ export default function Contact() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          honeypot,
+          elapsed: Date.now() - startedAt,
+        }),
       });
 
       if (response.ok) {
@@ -95,6 +109,17 @@ export default function Contact() {
             </div>
           ) : (
             <div className="contact__fields">
+              {/* Honeypot: invisível para humanos, atrai bots. Não remova. */}
+              <input
+                type="text"
+                name="website"
+                className="contact__hp"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
               <label>
                 Nome
                 <input 

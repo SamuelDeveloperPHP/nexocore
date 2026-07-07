@@ -9,6 +9,7 @@ import Portfolio from "./components/Portfolio.tsx";
 import StackTestimonials from "./components/StackTestimonials.tsx";
 import Contact from "./components/Contact.tsx";
 import Footer from "./components/Footer.tsx";
+import WhatsApp from "./components/WhatsApp.tsx";
 import { useReveal } from "./useReveal.ts";
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <WhatsApp />
     </>
   );
 }
