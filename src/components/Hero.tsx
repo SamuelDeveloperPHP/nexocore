@@ -22,9 +22,9 @@ export default function Hero() {
         </h1>
 
         <p className="hero__lead">
-          Desenvolvemos sistemas web, aplicativos mobile e soluções
-          corporativas sob medida para integrar informações, reduzir retrabalho
-          e acelerar o crescimento do seu negócio.
+          Sistemas sob medida para gestão QSMS, ERP multiempresas, frotas e
+          planejamento de produção (PCP) — integrando o campo à diretoria para
+          reduzir retrabalho e acelerar o crescimento do seu negócio.
         </p>
 
         <div className="hero__actions">

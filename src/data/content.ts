@@ -1,5 +1,6 @@
 export interface Solution {
   code: string;
+  icon: string;
   title: string;
   description: string;
   items?: string[];
@@ -23,45 +24,91 @@ export interface Testimonial {
   role: string;
 }
 
+/* Pilares — produtos principais da NexoCore */
+export const products: Solution[] = [
+  {
+    code: "P-01",
+    icon: "qsms",
+    title: "Gestão QSMS / SGI",
+    description:
+      "Plataforma integrada de Qualidade, Segurança, Meio Ambiente e Saúde, alinhada às normas ISO 9001, 14001 e 45001:",
+    items: [
+      "Auditorias e Não Conformidades",
+      "Documentos, Normas e Assinatura Digital",
+      "Treinamentos, ASOs e Controle de EPIs",
+      "Indicadores, Planos de Ação e Alertas",
+    ],
+  },
+  {
+    code: "P-02",
+    icon: "erp",
+    title: "ERP Multiempresas",
+    description:
+      "Gestão integrada das operações e do backoffice, com visão consolidada de todas as empresas do grupo:",
+    items: [
+      "Funcionários, Folgas e Férias",
+      "Financeiro (Contas a Pagar e Receber)",
+      "Estoque, Curva ABC e Ordens de Compras",
+      "Aprovações via E-mail e Alertas Automáticos",
+    ],
+  },
+  {
+    code: "P-03",
+    icon: "frota",
+    title: "Gestão Avançada de Frotas",
+    description:
+      "Controle total sobre veículos, máquinas e equipamentos operacionais — como módulo do ERP ou sistema isolado:",
+    items: [
+      "Manutenções Preventivas e Corretivas",
+      "Abastecimentos, Pneus e Horímetros",
+      "Seguros, IPVA e Documentação",
+      "Checklists Digitais em Campo (offline)",
+    ],
+  },
+  {
+    code: "P-04",
+    icon: "pcp",
+    title: "Gestão e Planejamento de Produção",
+    description:
+      "PCP completo: da programação das ordens ao apontamento no chão de fábrica, com indicadores em tempo real:",
+    items: [
+      "Ordens de Produção e Apontamentos",
+      "Planejamento de Capacidade e Cronogramas",
+      "Controle de Paradas e Indicadores (OEE)",
+      "Consumo de Materiais e Rastreabilidade",
+    ],
+  },
+];
+
+/* Serviços de engenharia que sustentam os produtos */
 export const solutions: Solution[] = [
   {
     code: "S-01",
+    icon: "web",
     title: "Desenvolvimento Web",
     description:
-      "Sistemas empresariais, ERPs, portais corporativos e plataformas personalizadas com arquitetura moderna e escalável.",
+      "Sistemas empresariais, portais corporativos e plataformas personalizadas com arquitetura moderna e escalável.",
   },
   {
     code: "S-02",
+    icon: "mobile",
     title: "Aplicativos Mobile",
     description:
       "Apps Android e iOS em React Native, com operação online e offline e sincronização automática em campo.",
   },
   {
     code: "S-03",
+    icon: "integracao",
     title: "Integração de Sistemas",
     description:
       "Conexão entre ERPs, APIs, bancos de dados e plataformas de terceiros, com automação de processos ponta a ponta.",
   },
   {
     code: "S-04",
+    icon: "bi",
     title: "Business Intelligence",
     description:
       "Dashboards, relatórios gerenciais e indicadores estratégicos para decisões baseadas em dados.",
-  },
-  {
-    code: "S-05",
-    title: "Sistemas de Gestão",
-    description:
-      "Plataformas corporativas para áreas operacionais e de conformidade:",
-    items: [
-      "Gestão da Qualidade",
-      "Segurança do Trabalho",
-      "Meio Ambiente",
-      "Gestão de Frotas",
-      "Controle de Ativos",
-      "Controle de Estoque",
-      "Gestão Documental",
-    ],
   },
 ];
 
@@ -78,11 +125,25 @@ export const differentials: string[] = [
 
 export const projects: Project[] = [
   {
-    tag: "SGI",
+    tag: "QSMS",
     title: "Sistema de Gestão Integrada",
     description:
       "Plataforma única para gestão da qualidade, segurança do trabalho e meio ambiente, com fluxos de auditoria e não conformidades.",
     metric: "3 normas em uma base",
+  },
+  {
+    tag: "Frotas",
+    title: "Gestão de Frotas 360º",
+    description:
+      "Gestão completa de IPVA, seguros, manutenções (preventivas e corretivas), pneus, checklists diários e abastecimentos.",
+    metric: "Redução de ociosidade",
+  },
+  {
+    tag: "PCP",
+    title: "Planejamento de Produção",
+    description:
+      "Programação de ordens de produção, apontamentos no chão de fábrica e indicadores de eficiência integrados ao ERP.",
+    metric: "Visão em tempo real",
   },
   {
     tag: "Operação",
@@ -92,25 +153,18 @@ export const projects: Project[] = [
     metric: "100% offline-first",
   },
   {
-    tag: "Frotas",
-    title: "Gestão de Frotas",
-    description:
-      "Abastecimentos, checklists, manutenções e indicadores operacionais centralizados em um só painel.",
-    metric: "Custo por km rastreado",
-  },
-  {
     tag: "ERP",
-    title: "ERP Corporativo",
+    title: "ERP e Suprimentos",
     description:
-      "Sistema multiempresa para gestão administrativa e operacional, com permissões por unidade.",
-    metric: "Multiempresa",
+      "Gestão de estoque (Curva ABC e mínimo), fluxo financeiro, RH e ordens de compras automatizadas com alertas.",
+    metric: "Integração Multiempresa",
   },
   {
-    tag: "Mobile",
-    title: "Apps Corporativos em Campo",
+    tag: "Documentos",
+    title: "Aprovações e Conformidade",
     description:
-      "Coleta de dados em campo com formulários dinâmicos e sincronização automática ao reconectar.",
-    metric: "Sync automático",
+      "Tramitação de documentos, controle de assinaturas digitais padrão ICP Brasil, e processos de aprovação.",
+    metric: "Zero papel",
   },
 ];
 
