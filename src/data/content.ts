@@ -52,12 +52,12 @@ export const products: Solution[] = [
     icon: "erp",
     title: "ERP Multiempresas",
     description:
-      "Gestão integrada das operações e do backoffice — como ERP completo ou integrado ao seu TOTVS, com visão consolidada do grupo:",
+      "Gestão integrada das operações e do backoffice — como ERP completo ou integrado ao ERP que você já usa, com visão consolidada do grupo:",
     items: [
       "Funcionários, Folgas e Férias",
       "Financeiro (Contas a Pagar e Receber)",
       "Estoque, Curva ABC e Ordens de Compras",
-      "Integração via API com TOTVS e outros ERPs",
+      "Integração via API com ERPs de mercado e sistemas legados",
     ],
   },
   {

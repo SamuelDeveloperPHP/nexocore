@@ -18,10 +18,11 @@ export default function Segments() {
 
         <div className="segments__modes reveal">
           <div className="segments__mode">
-            <span className="segments__badge">Integra ao seu TOTVS</span>
+            <span className="segments__badge">Integra ao seu ERP atual</span>
             <p>
-              Já roda TOTVS? Somos a camada operacional e o app offline que
-              conversam com o seu ERP — sem trocar o que já funciona.
+              Já tem um sistema — de mercado ou legado próprio? Somos a camada
+              operacional e o app offline que conversam com ele via API, sem
+              trocar o que já funciona.
             </p>
           </div>
           <div className="segments__mode">

@@ -78,6 +78,14 @@ const paths: Record<string, JSX.Element> = {
       <path d="M5.2 5.2l2 2M16.8 16.8l2 2M18.8 5.2l-2 2M7.2 16.8l-2 2" />
     </>
   ),
+  // Offline-first — nuvem com sincronização
+  offline: (
+    <>
+      <path d="M7 18h9.5a4 4 0 0 0 .4-8 5.5 5.5 0 0 0-10.6-1.4A3.8 3.8 0 0 0 6.5 18z" />
+      <path d="M12 11v4.5" />
+      <path d="M9.8 13.5l2.2 2.2 2.2-2.2" />
+    </>
+  ),
   // Construção / Obras — guindaste (torre)
   construtora: (
     <>

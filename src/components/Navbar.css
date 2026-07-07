@@ -60,7 +60,7 @@
 
 .nav__links {
   display: flex;
-  gap: 30px;
+  gap: 22px;
   font-size: 15px;
 }
 .nav__links a {
@@ -96,7 +96,7 @@
   display: none;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1000px) {
   .nav__links,
   .nav__cta {
     display: none;
