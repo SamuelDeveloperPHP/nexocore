@@ -69,6 +69,25 @@ const paths: Record<string, JSX.Element> = {
       <path d="M8 13.5l2 2 3.5-4" />
     </>
   ),
+  // Metalúrgica / Indústria — engrenagem
+  metalurgica: (
+    <>
+      <circle cx="12" cy="12" r="6.6" />
+      <circle cx="12" cy="12" r="2.4" />
+      <path d="M12 2.6v2.8M12 18.6v2.8M2.6 12h2.8M18.6 12h2.8" />
+      <path d="M5.2 5.2l2 2M16.8 16.8l2 2M18.8 5.2l-2 2M7.2 16.8l-2 2" />
+    </>
+  ),
+  // Construção / Obras — guindaste (torre)
+  construtora: (
+    <>
+      <path d="M7 21V4h11" />
+      <path d="M7 7l4-3" />
+      <path d="M15 4v3.5" />
+      <path d="M13.6 7.5h2.8l-1.4 2.5z" />
+      <path d="M4.5 21h8" />
+    </>
+  ),
 };
 
 export default function SolutionIcon({ name }: { name: string }) {

@@ -14,6 +14,13 @@ export interface Project {
   metric: string;
 }
 
+export interface Segment {
+  icon: string;
+  title: string;
+  description: string;
+  items: string[];
+}
+
 export interface StackGroup {
   label: string;
   items: string[];
@@ -45,12 +52,12 @@ export const products: Solution[] = [
     icon: "erp",
     title: "ERP Multiempresas",
     description:
-      "Gestão integrada das operações e do backoffice, com visão consolidada de todas as empresas do grupo:",
+      "Gestão integrada das operações e do backoffice — como ERP completo ou integrado ao seu TOTVS, com visão consolidada do grupo:",
     items: [
       "Funcionários, Folgas e Férias",
       "Financeiro (Contas a Pagar e Receber)",
       "Estoque, Curva ABC e Ordens de Compras",
-      "Aprovações via E-mail e Alertas Automáticos",
+      "Integração via API com TOTVS e outros ERPs",
     ],
   },
   {
@@ -110,6 +117,45 @@ export const solutions: Solution[] = [
     title: "Business Intelligence",
     description:
       "Dashboards, relatórios gerenciais e indicadores estratégicos para decisões baseadas em dados.",
+  },
+];
+
+export const segments: Segment[] = [
+  {
+    icon: "metalurgica",
+    title: "Metalúrgica & Indústria",
+    description:
+      "Da ordem de produção ao apontamento no chão de fábrica, com rastreabilidade e indicadores em tempo real.",
+    items: [
+      "PCP e sequenciamento de ordens",
+      "Apontamento de produção e OEE",
+      "Rastreabilidade de lote e matéria-prima",
+      "Estoque, Curva ABC e compras",
+    ],
+  },
+  {
+    icon: "construtora",
+    title: "Construção & Obras",
+    description:
+      "Controle da operação em campo que o ERP financeiro não cobre — do canteiro ao escritório.",
+    items: [
+      "Diário de obra (RDO) e medições",
+      "Controle de EPIs e QSMS em campo",
+      "Checklists e inspeções offline",
+      "Equipamentos e frota da obra",
+    ],
+  },
+  {
+    icon: "frota",
+    title: "Logística & Transporte",
+    description:
+      "Gestão de frotas e operação de campo com captura offline e sincronização automática.",
+    items: [
+      "Frotas, manutenção e abastecimento",
+      "Checklists e diário de bordo",
+      "Entregas e romaneio em campo",
+      "Tacógrafos e controle de pneus",
+    ],
   },
 ];
 

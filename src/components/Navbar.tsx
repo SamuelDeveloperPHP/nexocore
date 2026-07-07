@@ -3,6 +3,7 @@ import "./Navbar.css";
 
 const links = [
   { href: "#solucoes", label: "Soluções" },
+  { href: "#setores", label: "Setores" },
   { href: "#empresa", label: "Empresa" },
   { href: "#portfolio", label: "Portfólio" },
   { href: "#stack", label: "Tecnologias" },
