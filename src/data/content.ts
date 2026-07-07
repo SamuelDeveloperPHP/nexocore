@@ -60,9 +60,9 @@ export const products: Solution[] = [
       "Controle total sobre veículos, máquinas e equipamentos operacionais — como módulo do ERP ou sistema isolado:",
     items: [
       "Manutenções Preventivas e Corretivas",
-      "Abastecimentos, Pneus e Horímetros",
-      "Seguros, IPVA e Documentação",
-      "Checklists Digitais em Campo (offline)",
+      "Abastecimentos, Horímetros e Tacógrafos",
+      "Controle de Pneus, Seguros e IPVA",
+      "Checklists Digitais e Diário de Bordo",
     ],
   },
   {
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     tag: "Frotas",
     title: "Gestão de Frotas 360º",
     description:
-      "Gestão completa de IPVA, seguros, manutenções (preventivas e corretivas), pneus, checklists diários e abastecimentos.",
+      "Gestão completa de IPVA, seguros, manutenções, tacógrafos, controle de pneus, abastecimentos, checklists e diário de bordo com registro em campo offline.",
     metric: "Redução de ociosidade",
   },
   {
@@ -144,13 +144,6 @@ export const projects: Project[] = [
     description:
       "Programação de ordens de produção, apontamentos no chão de fábrica e indicadores de eficiência integrados ao ERP.",
     metric: "Visão em tempo real",
-  },
-  {
-    tag: "Operação",
-    title: "Diário de Bordo Digital",
-    description:
-      "Controle operacional de veículos, máquinas e equipamentos com registro em campo e sincronização offline.",
-    metric: "100% offline-first",
   },
   {
     tag: "ERP",
