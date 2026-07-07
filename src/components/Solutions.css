@@ -1,12 +1,20 @@
+.solutions__products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
 .solutions__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 18px;
 }
 
 .solutions__card {
   padding: 28px 26px;
   position: relative;
+  overflow: hidden;
   transition: transform 0.25s ease, border-color 0.25s ease,
     background 0.25s ease, opacity 0.7s, translate 0.7s;
 }
@@ -15,8 +23,58 @@
   border-color: rgba(96, 165, 250, 0.4);
   background: var(--surface-strong);
 }
-.solutions__card--wide {
-  grid-column: span 2;
+
+.solutions__card--product {
+  padding: 32px 30px;
+}
+.solutions__card--product::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.solutions__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.solutions__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  color: var(--accent-bright);
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.28);
+  box-shadow: 0 0 24px -8px var(--glow);
+  transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+.solutions__icon svg {
+  width: 26px;
+  height: 26px;
+}
+.solutions__icon--sm {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+}
+.solutions__icon--sm svg {
+  width: 22px;
+  height: 22px;
+}
+.solutions__card:hover .solutions__icon {
+  color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.1);
+  box-shadow: 0 0 30px -6px rgba(34, 211, 238, 0.4);
 }
 
 .solutions__code {
@@ -27,11 +85,17 @@
 }
 .solutions__card h3 {
   font-size: 21px;
-  margin: 14px 0 10px;
+  margin: 18px 0 10px;
 }
 .solutions__card p {
   color: var(--ink-soft);
   font-size: 15.5px;
+}
+.solutions__grid .solutions__card h3 {
+  font-size: 18px;
+}
+.solutions__grid .solutions__card p {
+  font-size: 14.5px;
 }
 
 .solutions__list {
@@ -63,16 +127,15 @@
   .solutions__grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .solutions__card--wide {
-    grid-column: span 2;
+}
+@media (max-width: 780px) {
+  .solutions__products {
+    grid-template-columns: 1fr;
   }
 }
 @media (max-width: 620px) {
   .solutions__grid {
     grid-template-columns: 1fr;
-  }
-  .solutions__card--wide {
-    grid-column: span 1;
   }
   .solutions__list {
     grid-template-columns: 1fr;
