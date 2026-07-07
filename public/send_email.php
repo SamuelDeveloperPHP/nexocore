@@ -1,6 +1,16 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *'); // Caso precisem de CORS no dev
+
+// CORS restrito à origem de produção (adicione localhost aqui se for testar em dev).
+$allowedOrigins = [
+    'https://www.nexocoretecnologia.com.br',
+    'https://nexocoretecnologia.com.br',
+];
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+if (in_array($origin, $allowedOrigins, true)) {
+    header("Access-Control-Allow-Origin: $origin");
+    header('Vary: Origin');
+}
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
@@ -27,10 +37,24 @@ $name = $data['name'] ?? '';
 $email = $data['email'] ?? '';
 $company = $data['company'] ?? '';
 $message = $data['message'] ?? '';
+$honeypot = $data['honeypot'] ?? '';
+$elapsed = isset($data['elapsed']) ? (int) $data['elapsed'] : 0;
+
+// Anti-spam: honeypot preenchido ou envio rápido demais (< 2,5s) → descarta em silêncio.
+if ($honeypot !== '' || ($elapsed > 0 && $elapsed < 2500)) {
+    echo json_encode(['success' => true]); // finge sucesso, não envia
+    exit;
+}
 
 if (empty($name) || empty($email) || empty($message)) {
     http_response_code(400);
     echo json_encode(['error' => 'Missing required fields']);
+    exit;
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Invalid email']);
     exit;
 }
 
