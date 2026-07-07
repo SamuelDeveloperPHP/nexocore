@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar.tsx";
 import Hero from "./components/Hero.tsx";
 import About from "./components/About.tsx";
 import Solutions from "./components/Solutions.tsx";
+import Segments from "./components/Segments.tsx";
 import Differentials from "./components/Differentials.tsx";
 import Portfolio from "./components/Portfolio.tsx";
 import StackTestimonials from "./components/StackTestimonials.tsx";
@@ -19,6 +20,7 @@ export default function App() {
         <Hero />
         <About />
         <Solutions />
+        <Segments />
         <Differentials />
         <Portfolio />
         <StackTestimonials />
