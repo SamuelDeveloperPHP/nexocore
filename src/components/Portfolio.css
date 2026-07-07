@@ -17,60 +17,50 @@
   border-color: rgba(96, 165, 250, 0.4);
 }
 
-/* CSS mockup standing in for real screenshots */
+/* Representative icon per project */
 .portfolio__shot {
   position: relative;
   aspect-ratio: 16 / 10;
   background: linear-gradient(155deg, #0e1a38, #0a1024);
   border-bottom: 1px solid var(--line);
-  padding: 14px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
-.portfolio__shot-bar {
-  display: flex;
-  gap: 6px;
-}
-.portfolio__shot-bar span {
-  width: 9px;
-  height: 9px;
+.portfolio__shot::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  background: rgba(120, 150, 220, 0.35);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.22), transparent 68%);
+  pointer-events: none;
 }
-.portfolio__shot-body {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  flex: 1;
+.portfolio__icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 20px;
+  color: var(--accent-bright);
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  box-shadow: 0 12px 40px -14px var(--glow);
+  transition: transform 0.25s ease, color 0.25s ease, background 0.25s ease,
+    box-shadow 0.25s ease;
 }
-.portfolio__shot-rowbig {
-  height: 34%;
-  border-radius: 8px;
-  background: linear-gradient(
-    120deg,
-    rgba(59, 130, 246, 0.32),
-    rgba(34, 211, 238, 0.18)
-  );
+.portfolio__icon svg {
+  width: 38px;
+  height: 38px;
 }
-.portfolio__shot-cards {
-  display: flex;
-  gap: 8px;
-}
-.portfolio__shot-cards span {
-  flex: 1;
-  height: 30px;
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--line-soft);
-}
-.portfolio__shot-line {
-  height: 8px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.08);
-}
-.portfolio__shot-line.short {
-  width: 62%;
+.portfolio__card:hover .portfolio__icon {
+  transform: translateY(-3px);
+  color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.1);
+  box-shadow: 0 16px 44px -12px rgba(34, 211, 238, 0.4);
 }
 .portfolio__tag {
   position: absolute;

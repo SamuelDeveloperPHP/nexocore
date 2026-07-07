@@ -8,6 +8,7 @@ export interface Solution {
 
 export interface Project {
   tag: string;
+  icon: string;
   title: string;
   description: string;
   metric: string;
@@ -126,6 +127,7 @@ export const differentials: string[] = [
 export const projects: Project[] = [
   {
     tag: "QSMS",
+    icon: "qsms",
     title: "Sistema de Gestão Integrada",
     description:
       "Plataforma única para gestão da qualidade, segurança do trabalho e meio ambiente, com fluxos de auditoria e não conformidades.",
@@ -133,6 +135,7 @@ export const projects: Project[] = [
   },
   {
     tag: "Frotas",
+    icon: "frota",
     title: "Gestão de Frotas 360º",
     description:
       "Gestão completa de IPVA, seguros, manutenções, tacógrafos, controle de pneus, abastecimentos, checklists e diário de bordo com registro em campo offline.",
@@ -140,6 +143,7 @@ export const projects: Project[] = [
   },
   {
     tag: "PCP",
+    icon: "pcp",
     title: "Planejamento de Produção",
     description:
       "Programação de ordens de produção, apontamentos no chão de fábrica e indicadores de eficiência integrados ao ERP.",
@@ -147,6 +151,7 @@ export const projects: Project[] = [
   },
   {
     tag: "ERP",
+    icon: "erp",
     title: "ERP e Suprimentos",
     description:
       "Gestão de estoque (Curva ABC e mínimo), fluxo financeiro, RH e ordens de compras automatizadas com alertas.",
@@ -154,6 +159,7 @@ export const projects: Project[] = [
   },
   {
     tag: "Documentos",
+    icon: "documentos",
     title: "Aprovações e Conformidade",
     description:
       "Tramitação de documentos, controle de assinaturas digitais padrão ICP Brasil, e processos de aprovação.",

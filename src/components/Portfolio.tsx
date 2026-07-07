@@ -1,4 +1,5 @@
 import { projects } from "../data/content.ts";
+import SolutionIcon from "./SolutionIcon.tsx";
 import "./Portfolio.css";
 
 export default function Portfolio() {
@@ -22,21 +23,9 @@ export default function Portfolio() {
               style={{ transitionDelay: `${i * 70}ms` }}
             >
               <div className="portfolio__shot" aria-hidden="true">
-                <div className="portfolio__shot-bar">
-                  <span />
-                  <span />
-                  <span />
-                </div>
-                <div className="portfolio__shot-body">
-                  <div className="portfolio__shot-rowbig" />
-                  <div className="portfolio__shot-cards">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                  <div className="portfolio__shot-line" />
-                  <div className="portfolio__shot-line short" />
-                </div>
+                <span className="portfolio__icon">
+                  <SolutionIcon name={p.icon} />
+                </span>
                 <span className="portfolio__tag">{p.tag}</span>
               </div>
 
