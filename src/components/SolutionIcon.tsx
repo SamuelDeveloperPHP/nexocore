@@ -61,6 +61,14 @@ const paths: Record<string, JSX.Element> = {
       <path d="M16.5 20v-9" />
     </>
   ),
+  // Documentos — folha com selo/assinatura
+  documentos: (
+    <>
+      <path d="M6 3h8l4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" />
+      <path d="M13 3v5h5" />
+      <path d="M8 13.5l2 2 3.5-4" />
+    </>
+  ),
 };
 
 export default function SolutionIcon({ name }: { name: string }) {
