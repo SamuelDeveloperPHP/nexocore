@@ -3,10 +3,47 @@ import "./Contact.css";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: ""
+  });
 
-  const handleSubmit = () => {
-    // Em produção, conectar a um endpoint/serviço de e-mail.
-    setSent(true);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async () => {
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Por favor, preencha nome, e-mail e mensagem.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/send_email.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSent(true);
+      } else {
+        alert("Ocorreu um erro ao enviar a mensagem. Tente novamente mais tarde.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Erro de conexão. Verifique sua internet.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -24,8 +61,8 @@ export default function Contact() {
           <ul className="contact__channels">
             <li>
               <span className="contact__k">E-mail</span>
-              <a href="mailto:contato@nexocore.com.br">
-                contato@nexocore.com.br
+              <a href="mailto:contato@nexocoretecnologia.com.br">
+                contato@nexocoretecnologia.com.br
               </a>
             </li>
             <li>
@@ -36,8 +73,8 @@ export default function Contact() {
             </li>
             <li>
               <span className="contact__k">Site</span>
-              <a href="https://www.nexocore.com.br" target="_blank" rel="noreferrer">
-                www.nexocore.com.br
+              <a href="https://www.nexocoretecnologia.com.br" target="_blank" rel="noreferrer">
+                www.nexocoretecnologia.com.br
               </a>
             </li>
             <li>
@@ -60,33 +97,53 @@ export default function Contact() {
             <div className="contact__fields">
               <label>
                 Nome
-                <input type="text" placeholder="Seu nome" autoComplete="name" />
+                <input 
+                  type="text" 
+                  name="name"
+                  placeholder="Seu nome" 
+                  autoComplete="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
               </label>
               <label>
                 E-mail corporativo
                 <input
                   type="email"
+                  name="email"
                   placeholder="voce@empresa.com.br"
                   autoComplete="email"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </label>
               <label>
                 Empresa
-                <input type="text" placeholder="Nome da empresa" />
+                <input 
+                  type="text" 
+                  name="company"
+                  placeholder="Nome da empresa" 
+                  value={formData.company}
+                  onChange={handleChange}
+                />
               </label>
               <label>
                 Como podemos ajudar?
                 <textarea
+                  name="message"
                   rows={4}
                   placeholder="Descreva o desafio ou o sistema que você precisa."
+                  value={formData.message}
+                  onChange={handleChange}
                 />
               </label>
               <button
                 type="button"
                 className="btn btn-primary contact__submit"
                 onClick={handleSubmit}
+                disabled={isSubmitting}
               >
-                Solicitar demonstração
+                {isSubmitting ? "Enviando..." : "Solicitar demonstração"}
               </button>
             </div>
           )}
