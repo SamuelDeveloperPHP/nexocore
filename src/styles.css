@@ -47,6 +47,16 @@ body {
 body.theme-light {
   background: #eef1f7;
 }
+/* O rodapé continua escuro mesmo com o blog em tema claro */
+body.theme-light .footer {
+  background: var(--bg);
+}
+/* Nas páginas do blog o conteúdo aparece direto (sem reveal-on-scroll nem transição) */
+body.theme-light .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
 
 a {
   color: inherit;

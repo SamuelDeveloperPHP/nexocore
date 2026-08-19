@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="footer__bottom">
           <div className="footer__brand">
             <span className="footer__mark" aria-hidden="true" />
-            Nexo<span className="footer__accent">Core</span> Tecnologia LTDA
+            <span className="footer__brand-text">Nexo<span className="footer__accent">Core</span> Tecnologia LTDA</span>
           </div>
           <p className="footer__copy">
             © {year} NexoCore Tecnologia. Curitiba — Paraná, Brasil.

@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getPost } from "../data/posts.ts";
+import { useReveal } from "../useReveal.ts";
 import "./BlogPost.css";
 
 export default function BlogPost() {
   const { slug } = useParams();
   const post = slug ? getPost(slug) : undefined;
+  useReveal();
 
   useEffect(() => {
     if (post) document.title = `${post.title} — NexoCore`;
@@ -47,7 +49,7 @@ export default function BlogPost() {
           Blog
         </Link>
 
-        <header className="post__head reveal">
+        <header className="post__head">
           <div className="post__meta">
             <span className="post__tag">{post.tag}</span>
             <time dateTime={post.date}>{post.dateLabel}</time>
