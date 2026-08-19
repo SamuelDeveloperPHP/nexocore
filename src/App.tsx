@@ -1,38 +1,19 @@
-import Navbar from "./components/Navbar.tsx";
-import Hero from "./components/Hero.tsx";
-import About from "./components/About.tsx";
-import Solutions from "./components/Solutions.tsx";
-import Segments from "./components/Segments.tsx";
-import MobileApp from "./components/MobileApp.tsx";
-import Differentials from "./components/Differentials.tsx";
-import Portfolio from "./components/Portfolio.tsx";
-import Chassis3DViewer from "./components/Chassis3DViewer.tsx";
-import StackTestimonials from "./components/StackTestimonials.tsx";
-import Contact from "./components/Contact.tsx";
-import Footer from "./components/Footer.tsx";
-import WhatsApp from "./components/WhatsApp.tsx";
-import { useReveal } from "./useReveal.ts";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout.tsx";
+import Home from "./pages/Home.tsx";
+import Blog from "./pages/Blog.tsx";
+import BlogPost from "./pages/BlogPost.tsx";
 
 export default function App() {
-  useReveal();
-
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Solutions />
-        <Segments />
-        <MobileApp />
-        <Differentials />
-        <Portfolio />
-        <Chassis3DViewer />
-        <StackTestimonials />
-        <Contact />
-      </main>
-      <Footer />
-      <WhatsApp />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

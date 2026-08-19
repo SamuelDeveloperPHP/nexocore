@@ -1,27 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { posts } from "../data/posts.ts";
 import "./Navbar.css";
 
-const links = [
-  { href: "#solucoes", label: "Soluções" },
-  { href: "#setores", label: "Setores" },
-  { href: "#app", label: "App" },
-  { href: "#empresa", label: "Empresa" },
-  { href: "#portfolio", label: "Portfólio" },
-  { href: "#stack", label: "Tecnologias" },
-  { href: "#contato", label: "Contato" },
-];
-
-const posts = [
-  {
-    href: "https://claude.ai/code/artifact/616b5228-4513-480f-b375-0991da295e1a",
-    label: "Gantt Free",
-    note: "Bibliotecas de Gantt gratuitas",
-  },
+const sections = [
+  { id: "solucoes", label: "Soluções" },
+  { id: "setores", label: "Setores" },
+  { id: "app", label: "App" },
+  { id: "empresa", label: "Empresa" },
+  { id: "portfolio", label: "Portfólio" },
+  { id: "stack", label: "Tecnologias" },
+  { id: "contato", label: "Contato" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -30,22 +26,38 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Âncoras de seção: na home o navegador resolve; em outra rota, navega
+  // para a home (SPA) e então rola até a seção.
+  function goToSection(e: MouseEvent, id: string) {
+    setOpen(false);
+    if (location.pathname === "/") return;
+    e.preventDefault();
+    navigate("/");
+    window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }, 80);
+  }
+
   return (
     <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
       <div className="shell nav__inner">
-        <a href="#top" className="nav__brand" aria-label="NexoCore — início">
+        <Link to="/" className="nav__brand" aria-label="NexoCore — início">
           <span className="nav__mark" aria-hidden="true">
             <span className="nav__node" />
             <span className="nav__node" />
             <span className="nav__node" />
           </span>
           Nexo<span className="nav__brand-accent">Core</span>
-        </a>
+        </Link>
 
         <nav className="nav__links" aria-label="Navegação principal">
-          {links.map((l) => (
-            <a key={l.href} href={l.href}>
-              {l.label}
+          {sections.map((s) => (
+            <a
+              key={s.id}
+              href={`/#${s.id}`}
+              onClick={(e) => goToSection(e, s.id)}
+            >
+              {s.label}
             </a>
           ))}
 
@@ -75,23 +87,32 @@ export default function Navbar() {
             </button>
             <div className="nav__posts-panel" role="menu">
               {posts.map((p) => (
-                <a
-                  key={p.href}
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener"
+                <Link
+                  key={p.slug}
+                  to={`/blog/${p.slug}`}
                   role="menuitem"
                   className="nav__post"
                 >
-                  <span className="nav__post-title">{p.label}</span>
-                  <span className="nav__post-note">{p.note}</span>
-                </a>
+                  <span className="nav__post-title">
+                    {p.title.split(":")[0]}
+                  </span>
+                  <span className="nav__post-note">
+                    {p.title.split(":")[1]?.trim() ?? p.tag}
+                  </span>
+                </Link>
               ))}
+              <Link to="/blog" className="nav__posts-all">
+                Ver todos os posts →
+              </Link>
             </div>
           </div>
         </nav>
 
-        <a href="#contato" className="btn btn-primary nav__cta">
+        <a
+          href="/#contato"
+          className="btn btn-primary nav__cta"
+          onClick={(e) => goToSection(e, "contato")}
+        >
           Solicitar orçamento
         </a>
 
@@ -108,30 +129,39 @@ export default function Navbar() {
 
       {open && (
         <div className="nav__drawer">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
-              {l.label}
+          {sections.map((s) => (
+            <a
+              key={s.id}
+              href={`/#${s.id}`}
+              onClick={(e) => goToSection(e, s.id)}
+            >
+              {s.label}
             </a>
           ))}
 
           <span className="nav__drawer-label">Posts</span>
           {posts.map((p) => (
-            <a
-              key={p.href}
-              href={p.href}
-              target="_blank"
-              rel="noopener"
+            <Link
+              key={p.slug}
+              to={`/blog/${p.slug}`}
               className="nav__drawer-post"
               onClick={() => setOpen(false)}
             >
-              {p.label}
-            </a>
+              {p.title.split(":")[0]}
+            </Link>
           ))}
+          <Link
+            to="/blog"
+            className="nav__drawer-post"
+            onClick={() => setOpen(false)}
+          >
+            Ver todos os posts
+          </Link>
 
           <a
-            href="#contato"
+            href="/#contato"
             className="btn btn-primary"
-            onClick={() => setOpen(false)}
+            onClick={(e) => goToSection(e, "contato")}
           >
             Solicitar orçamento
           </a>
