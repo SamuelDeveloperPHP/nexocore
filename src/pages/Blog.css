@@ -1,6 +1,18 @@
 .blog {
+  /* Tema claro restrito ao blog: redefine os tokens no escopo da página */
+  --surface: #ffffff;
+  --surface-strong: #f2f5fb;
+  --line: rgba(22, 32, 64, 0.12);
+  --line-soft: rgba(22, 32, 64, 0.07);
+  --ink: #151b2e;
+  --ink-soft: #4c5670;
+  --ink-mute: #838da4;
+  --accent-bright: #2563eb;
+  --glow: rgba(37, 99, 235, 0.18);
+  background: #eef1f7;
+  color: var(--ink);
   padding-top: 148px;
-  min-height: 70vh;
+  min-height: calc(100vh - 120px);
 }
 
 .blog__grid {

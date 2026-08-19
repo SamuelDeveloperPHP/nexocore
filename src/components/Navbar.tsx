@@ -38,8 +38,11 @@ export default function Navbar() {
     }, 80);
   }
 
+  // Fundo sólido ao rolar — e sempre nas rotas do blog (tema claro atrás).
+  const solid = scrolled || location.pathname.startsWith("/blog");
+
   return (
-    <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
+    <header className={`nav ${solid ? "nav--scrolled" : ""}`}>
       <div className="shell nav__inner">
         <Link to="/" className="nav__brand" aria-label="NexoCore — início">
           <span className="nav__mark" aria-hidden="true">
