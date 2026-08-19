@@ -26,10 +26,21 @@ export interface StackGroup {
   items: string[];
 }
 
-export interface Testimonial {
-  quote: string;
-  author: string;
-  role: string;
+
+export interface TrustPillar {
+  title: string;
+  description: string;
+}
+
+export interface ImplementationStep {
+  phase: string;
+  title: string;
+  description: string;
+}
+
+export interface PlatformEvidence {
+  title: string;
+  description: string;
 }
 
 /* Pilares — produtos principais da NexoCore */
@@ -220,17 +231,87 @@ export const stack: StackGroup[] = [
   { label: "Infraestrutura", items: ["Linux", "Docker", "GitHub", "AWS", "VPS"] },
 ];
 
-export const testimonials: Testimonial[] = [
+
+export const trustPillars: TrustPillar[] = [
   {
-    quote:
-      "A NexoCore transformou nossos processos operacionais, reduzindo retrabalho e aumentando a produtividade.",
-    author: "Diretoria de Operações",
-    role: "Indústria — cliente NexoCore",
+    title: "Diagnóstico antes da proposta",
+    description:
+      "Mapeamos processos, gargalos, integrações e prioridades antes de falar em módulo, prazo ou escopo.",
   },
   {
-    quote:
-      "Profissionalismo, qualidade técnica e um suporte que responde de verdade quando precisamos.",
-    author: "Coordenação de TI",
-    role: "Empresa de serviços — cliente NexoCore",
+    title: "Demonstração com fluxos reais",
+    description:
+      "A conversa comercial é apoiada por telas, módulos e jornadas de uso para o gestor avaliar aderência ao processo.",
+  },
+  {
+    title: "Implantação acompanhada",
+    description:
+      "Planejamento por etapas, ambiente de testes, treinamento de usuários-chave e suporte próximo na virada.",
+  },
+  {
+    title: "Evolução sob demanda",
+    description:
+      "O sistema pode crescer com novas regras, relatórios, automações e integrações conforme a operação amadurece.",
   },
 ];
+
+export const implementationSteps: ImplementationStep[] = [
+  {
+    phase: "01",
+    title: "Diagnóstico operacional",
+    description:
+      "Entendimento dos setores, planilhas atuais, sistemas existentes, permissões, indicadores e pontos críticos.",
+  },
+  {
+    phase: "02",
+    title: "Parametrização dos módulos",
+    description:
+      "Configuração de cadastros, fluxos, regras de aprovação, perfis de acesso e relatórios necessários para a rotina.",
+  },
+  {
+    phase: "03",
+    title: "Migração e ambiente de testes",
+    description:
+      "Importação assistida de dados essenciais e validação em ambiente seguro antes da entrada oficial em operação.",
+  },
+  {
+    phase: "04",
+    title: "Treinamento da equipe",
+    description:
+      "Capacitação de usuários-chave, orientação por processo e material de apoio para reduzir dependência operacional.",
+  },
+  {
+    phase: "05",
+    title: "Acompanhamento pós-implantação",
+    description:
+      "Correções finas, suporte próximo e priorização de melhorias com base no uso real da plataforma.",
+  },
+];
+
+export const platformEvidence: PlatformEvidence[] = [
+  {
+    title: "Dashboards gerenciais",
+    description: "Indicadores de operação, pendências, custos, produção, frota ou conformidade em tempo real.",
+  },
+  {
+    title: "Módulos integrados",
+    description: "ERP, QSMS, frotas, estoque, compras, documentos, financeiro, PCP e relatórios em uma base única.",
+  },
+  {
+    title: "Controle de acesso",
+    description: "Perfis por setor, rastreabilidade de ações e separação de permissões por responsabilidade.",
+  },
+  {
+    title: "Operação mobile e offline",
+    description: "Coleta em campo, checklists, diário de bordo e sincronização quando a conexão estiver disponível.",
+  },
+  {
+    title: "Integrações",
+    description: "APIs, ERPs legados, bases de dados e automações para reduzir retrabalho entre sistemas.",
+  },
+  {
+    title: "Relatórios sob medida",
+    description: "Visões para diretoria, gestores e operação com filtros, histórico e apoio à tomada de decisão.",
+  },
+];
+

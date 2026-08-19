@@ -1,0 +1,359 @@
+﻿.chassis-viewer-section {
+  position: relative;
+  padding: clamp(4rem, 7vw, 7rem) 2rem;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(55, 65, 81, 0.28), transparent 34rem),
+    linear-gradient(180deg, #111216 0%, #090a0d 100%);
+  color: #f3f4f6;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: 'Outfit', sans-serif;
+  overflow: hidden;
+}
+
+.chassis-viewer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.chassis-viewer-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3.5rem;
+}
+
+.chassis-viewer-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, #ffffff 0%, #bfc4cf 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.03em;
+}
+
+.chassis-viewer-header p {
+  color: #aeb4c0;
+  font-size: clamp(1rem, 1.8vw, 1.16rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.chassis-viewer-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.chassis-3d-card {
+  position: relative;
+  height: min(68vw, 680px);
+  min-height: 540px;
+  background: linear-gradient(180deg, #f8f8f5 0%, #ececea 100%);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow:
+    0 36px 80px -34px rgba(0, 0, 0, 0.88),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.36);
+}
+
+.chassis-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.chassis-canvas:active {
+  cursor: grabbing;
+}
+
+.viewer-status {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  color: #3f4652;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 0.85rem;
+}
+
+.viewer-status.error {
+  color: #991b1b;
+}
+
+.spinner {
+  border: 3px solid rgba(0, 0, 0, 0.08);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border-left-color: #2563eb;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.viewer-watermark {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  padding: 0.58rem 1.15rem;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  color: #374151;
+  pointer-events: none;
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.12);
+}
+
+.chassis-details-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.5rem;
+}
+
+.chassis-controls-card {
+  background: rgba(18, 20, 26, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: clamp(1.35rem, 2.5vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 0 18px 40px -26px rgba(0, 0, 0, 0.75);
+}
+
+.chassis-controls-card h3,
+.chassis-specs h4,
+.chassis-downloads h4 {
+  font-size: 1.08rem;
+  font-weight: 750;
+  margin: 0 0 1rem;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.chassis-controls-card h3,
+.chassis-specs h4 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.85rem;
+}
+
+.controls-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.15rem;
+  font-size: 0.95rem;
+  color: #d1d5db;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 26px;
+  flex: 0 0 auto;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: .3s;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #d1d5db;
+  transition: .3s;
+}
+
+input:checked + .slider {
+  background-color: #2563eb;
+  border-color: #60a5fa;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+  background-color: #ffffff;
+}
+
+.slider.round,
+.slider.round:before {
+  border-radius: 999px;
+}
+
+.controls-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.btn-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e5e7eb;
+  padding: 0.78rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+  text-align: center;
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(96, 165, 250, 0.75);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.control-btn.reset-btn {
+  background: rgba(37, 99, 235, 0.18);
+  border-color: rgba(96, 165, 250, 0.42);
+  color: #bfdbfe;
+}
+
+.control-btn.reset-btn:hover {
+  background: rgba(37, 99, 235, 0.32);
+  border-color: #60a5fa;
+}
+
+.chassis-specs {
+  margin-bottom: 1.4rem;
+}
+
+.chassis-specs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.chassis-specs li {
+  font-size: 0.94rem;
+  color: #d7dbe3;
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.45fr) minmax(0, 1fr);
+  gap: 0.85rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.065);
+  padding-bottom: 0.65rem;
+  line-height: 1.45;
+}
+
+.chassis-specs li strong {
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.chassis-downloads {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.35rem;
+  margin-top: auto;
+}
+
+.download-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: none;
+  color: #ffffff;
+  padding: 0.82rem 0.75rem;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.22);
+}
+
+.download-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.34);
+}
+
+.download-btn.secondary {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: #d1d5db;
+  box-shadow: none;
+}
+
+.download-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .chassis-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chassis-3d-card {
+    min-height: 460px;
+  }
+}
+
+@media (max-width: 620px) {
+  .chassis-viewer-section {
+    padding-inline: 1rem;
+  }
+
+  .chassis-3d-card {
+    min-height: 380px;
+    border-radius: 20px;
+  }
+
+  .btn-row,
+  .download-links,
+  .chassis-specs li {
+    grid-template-columns: 1fr;
+  }
+
+  .viewer-watermark {
+    width: calc(100% - 2rem);
+    text-align: center;
+    font-size: 0.68rem;
+  }
+}
