@@ -51,6 +51,11 @@ body.theme-light {
 body.theme-light .footer {
   background: var(--bg);
 }
+/* A navbar fica escura sólida no blog (o translúcido deixava o fundo claro vazar) */
+body.theme-light .nav--scrolled {
+  background: var(--bg);
+  transition: none;
+}
 /* Nas páginas do blog o conteúdo aparece direto (sem reveal-on-scroll nem transição) */
 body.theme-light .reveal {
   opacity: 1;
