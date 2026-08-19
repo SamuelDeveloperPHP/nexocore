@@ -50,7 +50,7 @@ export default function Navbar() {
             <span className="nav__node" />
             <span className="nav__node" />
           </span>
-          Nexo<span className="nav__brand-accent">Core</span>
+          <span className="nav__brand-text">Nexo<span className="nav__brand-accent">Core</span></span>
         </Link>
 
         <nav className="nav__links" aria-label="Navegação principal">
