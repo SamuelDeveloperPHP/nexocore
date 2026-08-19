@@ -43,6 +43,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Tema claro restrito às páginas do blog (ativado via classe no <body>) */
+body.theme-light {
+  background: #eef1f7;
+}
+
 a {
   color: inherit;
   text-decoration: none;
