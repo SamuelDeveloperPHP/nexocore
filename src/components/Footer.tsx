@@ -1,7 +1,9 @@
+import { useLocation } from "react-router-dom";
 import "./Footer.css";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const isBlog = useLocation().pathname.startsWith("/blog");
 
   return (
     <footer className="footer">
@@ -13,9 +15,11 @@ export default function Footer() {
             inovação, eficiência e crescimento sustentável.
           </p>
           <div className="footer__cta-actions">
-            <a href="/#contato" className="btn btn-primary">
-              Solicitar demonstração
-            </a>
+            {!isBlog && (
+              <a href="/#contato" className="btn btn-primary">
+                Solicitar demonstração
+              </a>
+            )}
             <a href="/#contato" className="btn btn-ghost">
               Falar com um especialista
             </a>
