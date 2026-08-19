@@ -71,6 +71,88 @@
   color: var(--ink);
 }
 
+/* Dropdown "Posts" (desktop) */
+.nav__posts {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.nav__posts-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+.nav__posts-trigger:hover {
+  color: var(--ink);
+}
+.nav__caret {
+  transition: transform 0.2s ease;
+}
+.nav__posts:hover .nav__caret,
+.nav__posts:focus-within .nav__caret {
+  transform: rotate(180deg);
+}
+/* ponte invisível para o hover não quebrar no espaço até o painel */
+.nav__posts::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+.nav__posts-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 240px;
+  padding: 8px;
+  background: rgba(10, 15, 31, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  box-shadow: 0 20px 48px -24px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+}
+.nav__posts:hover .nav__posts-panel,
+.nav__posts:focus-within .nav__posts-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav__post {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 11px;
+  border-radius: 8px;
+  transition: background 0.16s ease;
+}
+.nav__post:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.nav__post-title {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+.nav__post-note {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
 .nav__cta {
   padding: 10px 18px;
   font-size: 14px;
@@ -116,6 +198,14 @@
     color: var(--ink-soft);
     padding: 10px 0;
     border-bottom: 1px solid var(--line-soft);
+  }
+  .nav__drawer-label {
+    padding: 14px 0 2px;
+    color: var(--ink-soft);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
   }
   .nav__drawer .btn {
     margin-top: 10px;

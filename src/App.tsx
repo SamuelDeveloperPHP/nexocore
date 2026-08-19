@@ -6,6 +6,7 @@ import Segments from "./components/Segments.tsx";
 import MobileApp from "./components/MobileApp.tsx";
 import Differentials from "./components/Differentials.tsx";
 import Portfolio from "./components/Portfolio.tsx";
+import Chassis3DViewer from "./components/Chassis3DViewer.tsx";
 import StackTestimonials from "./components/StackTestimonials.tsx";
 import Contact from "./components/Contact.tsx";
 import Footer from "./components/Footer.tsx";
@@ -26,6 +27,7 @@ export default function App() {
         <MobileApp />
         <Differentials />
         <Portfolio />
+        <Chassis3DViewer />
         <StackTestimonials />
         <Contact />
       </main>

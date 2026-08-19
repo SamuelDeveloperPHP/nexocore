@@ -11,6 +11,14 @@ const links = [
   { href: "#contato", label: "Contato" },
 ];
 
+const posts = [
+  {
+    href: "https://claude.ai/code/artifact/616b5228-4513-480f-b375-0991da295e1a",
+    label: "Gantt Free",
+    note: "Bibliotecas de Gantt gratuitas",
+  },
+];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -40,6 +48,47 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
+
+          <div className="nav__posts">
+            <button
+              type="button"
+              className="nav__posts-trigger"
+              aria-haspopup="true"
+            >
+              Posts
+              <svg
+                className="nav__caret"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                aria-hidden="true"
+              >
+                <path
+                  d="M1 1l4 4 4-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <div className="nav__posts-panel" role="menu">
+              {posts.map((p) => (
+                <a
+                  key={p.href}
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener"
+                  role="menuitem"
+                  className="nav__post"
+                >
+                  <span className="nav__post-title">{p.label}</span>
+                  <span className="nav__post-note">{p.note}</span>
+                </a>
+              ))}
+            </div>
+          </div>
         </nav>
 
         <a href="#contato" className="btn btn-primary nav__cta">
@@ -64,6 +113,21 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
+
+          <span className="nav__drawer-label">Posts</span>
+          {posts.map((p) => (
+            <a
+              key={p.href}
+              href={p.href}
+              target="_blank"
+              rel="noopener"
+              className="nav__drawer-post"
+              onClick={() => setOpen(false)}
+            >
+              {p.label}
+            </a>
+          ))}
+
           <a
             href="#contato"
             className="btn btn-primary"

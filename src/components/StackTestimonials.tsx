@@ -1,4 +1,4 @@
-import { stack, testimonials } from "../data/content.ts";
+import { implementationSteps, platformEvidence, stack, trustPillars } from "../data/content.ts";
 import "./StackTestimonials.css";
 
 export default function StackTestimonials() {
@@ -36,26 +36,61 @@ export default function StackTestimonials() {
         </div>
       </section>
 
-      <section className="section testimonials">
+      <section className="section proof" id="implantacao">
         <div className="shell">
-          <span className="eyebrow reveal">// depoimentos</span>
-          <div className="testimonials__grid">
-            {testimonials.map((t, i) => (
-              <figure
-                key={t.author}
-                className="glass testimonials__card reveal"
-                style={{ transitionDelay: `${i * 80}ms` }}
+          <div className="section-head proof__head reveal">
+            <span className="eyebrow">// segurança para sua implantação</span>
+            <h2>Confiança construída com método e evidência.</h2>
+            <p>
+              Para contratar um ERP, o gestor precisa enxergar processo, risco,
+              suporte e aderência. A NexoCore apresenta isso com diagnóstico,
+              demonstração dos fluxos e um plano claro de implantação.
+            </p>
+          </div>
+
+          <div className="proof__pillars">
+            {trustPillars.map((pillar, i) => (
+              <article
+                key={pillar.title}
+                className="glass proof__pillar reveal"
+                style={{ transitionDelay: `${i * 70}ms` }}
               >
-                <span className="testimonials__quote-mark" aria-hidden="true">
-                  &ldquo;
-                </span>
-                <blockquote>{t.quote}</blockquote>
-                <figcaption>
-                  <strong>{t.author}</strong>
-                  <span>{t.role}</span>
-                </figcaption>
-              </figure>
+                <span className="proof__pillar-index">0{i + 1}</span>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.description}</p>
+              </article>
             ))}
+          </div>
+
+          <div className="proof__split">
+            <div className="glass proof__panel proof__timeline reveal">
+              <span className="eyebrow">// método de implantação</span>
+              <h3>Como o projeto sai do diagnóstico e entra em operação.</h3>
+              <ol>
+                {implementationSteps.map((step) => (
+                  <li key={step.phase}>
+                    <span className="proof__phase">{step.phase}</span>
+                    <div>
+                      <strong>{step.title}</strong>
+                      <p>{step.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <div className="glass proof__panel proof__evidence reveal">
+              <span className="eyebrow">// o que avaliar na demonstração</span>
+              <h3>Telas, módulos e critérios para reduzir risco de compra.</h3>
+              <div className="proof__evidence-grid">
+                {platformEvidence.map((item) => (
+                  <article key={item.title}>
+                    <h4>{item.title}</h4>
+                    <p>{item.description}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -3,7 +3,7 @@ import "./Hero.css";
 
 const stats = [
   { value: "2019", label: "Fundada em" },
-  { value: "Sob medida", label: "Cada projeto" },
+  { value: "Implantação guiada", label: "Do diagnóstico ao uso" },
   { value: "Online + Offline", label: "Aplicações" },
 ];
 
@@ -17,22 +17,22 @@ export default function Hero() {
         <span className="eyebrow">// software house · Curitiba — PR</span>
 
         <h1 className="hero__title">
-          Tecnologia que <span className="hero__accent">conecta</span> processos
-          e impulsiona resultados.
+          ERP, QSMS e frotas sob medida para empresas que precisam{" "}
+          <span className="hero__accent">controlar</span> a operação.
         </h1>
 
         <p className="hero__lead">
-          Sistemas sob medida para gestão QSMS, ERP multiempresas, frotas e
-          planejamento de produção (PCP) — integrando o campo à diretoria para
-          reduzir retrabalho e acelerar o crescimento do seu negócio.
+          Centralize processos, reduza planilhas paralelas e leve dados confiáveis
+          do campo à diretoria com implantação guiada, módulos integrados e
+          evolução sob demanda.
         </p>
 
         <div className="hero__actions">
           <a href="#contato" className="btn btn-primary">
-            Solicitar orçamento
+            Agendar demonstração do ERP
           </a>
-          <a href="#portfolio" className="btn btn-ghost">
-            Conhecer projetos →
+          <a href="#implantacao" className="btn btn-ghost">
+            Ver módulos e implantação →
           </a>
         </div>
 
