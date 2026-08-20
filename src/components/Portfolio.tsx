@@ -8,10 +8,10 @@ export default function Portfolio() {
       <div className="shell">
         <div className="section-head reveal">
           <span className="eyebrow">// portfólio</span>
-          <h2>Projetos que já estão em produção.</h2>
+          <h2>Módulos e protótipos disponíveis para demonstração.</h2>
           <p>
-            Uma seleção de sistemas que desenvolvemos para integrar operação,
-            conformidade e gestão.
+            Uma seleção de módulos e protótipos que construímos para demonstrar
+            como integramos operação, conformidade e gestão.
           </p>
         </div>
 
