@@ -103,8 +103,8 @@ export default function Contact() {
             <div className="contact__success">
               <h3>Recebemos seu contato.</h3>
               <p>
-                Em breve um especialista da NexoCore retorna para entender seu
-                projeto.
+                Em breve retornamos para entender seu projeto e apresentar os
+                próximos passos.
               </p>
             </div>
           ) : (
