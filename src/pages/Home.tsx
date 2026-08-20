@@ -6,7 +6,7 @@ import Segments from "../components/Segments.tsx";
 import MobileApp from "../components/MobileApp.tsx";
 import Differentials from "../components/Differentials.tsx";
 import Portfolio from "../components/Portfolio.tsx";
-import Chassis3DViewer from "../components/Chassis3DViewer.tsx";
+// import Chassis3DViewer from "../components/Chassis3DViewer.tsx"; // seção 3D do caminhão desativada (arquivos preservados)
 import StackTestimonials from "../components/StackTestimonials.tsx";
 import Contact from "../components/Contact.tsx";
 import { useReveal } from "../useReveal.ts";
@@ -34,7 +34,7 @@ export default function Home() {
       <MobileApp />
       <Differentials />
       <Portfolio />
-      <Chassis3DViewer />
+      {/* <Chassis3DViewer /> — seção das vistas do caminhão temporariamente removida */}
       <StackTestimonials />
       <Contact />
     </main>
